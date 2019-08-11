@@ -27,6 +27,11 @@
   min-width: 280px;
   min-height:450px ;
   border-radius: 10px;
+  position: relative;
+}
+.header-title{
+  color: #464646;
+  margin-bottom:20px; 
 }
 .todo-title{
   color: #464646;
@@ -35,6 +40,7 @@
 
 .todo-item{
   text-align: left;
+  // border-bottom: 1px solid #CCC;
 }
 .todo-add{
   height: 30px;
@@ -54,6 +60,27 @@
     }
 }
 .todo-add-wrapper{
+  margin-top:20px;
   display: flex;
   justify-content: space-around;
+}
+.edit-icon{
+  position: relative;
+  float: right;
+  right: 15px;
+}
+.showCompleted{
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 88%;
+  span{
+    color: #464646;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius:5px;
+  }
 }

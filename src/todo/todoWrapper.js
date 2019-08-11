@@ -1,23 +1,27 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {appContext} from '../App';
 import {TodoItem} from './todoItem'
 export default function Todo(params) {
+  const context = useContext(appContext)
   return(
     <div>
-     <appContext.Consumer>
-      {
-        (context) => (
-          <>
+     
           {
             context.state.List.map(todo => {
-              return  <TodoItem todo={todo} onchange ={(id)=>{context.onDone(id)}} ></TodoItem>  
+              
+              if(context.state.showComplete == true){
+                if (todo.status == 'done'){
+                  return  <TodoItem todo={todo} onchange ={(id)=>{context.toggleDone(id)}} ></TodoItem>    
+                }
+              }
+              else{
+                return  <TodoItem todo={todo} onchange ={(id)=>{context.toggleDone(id)}} ></TodoItem>  
+              }
+              
             })
           }
-          </>
-          
-          )        
-      }
-     </appContext.Consumer>
+     
+     
     </div>
   )
 }
